@@ -262,7 +262,6 @@ edit_btn.grid(row=11, column=0, columnspan=2, pady=10, padx=10, ipadx=143)
 
 
 
-
 conn.commit()
 conn.close()
 

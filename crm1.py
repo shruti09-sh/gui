@@ -134,11 +134,10 @@ def search_customer():
         country_label = Label(search_customers, text= "Country").grid(row=index+8, column=0, sticky=W, padx=10)
         phone_label = Label(search_customers, text= "Phone Number").grid(row=index+9, column=0, sticky=W, padx=10)
         email_label = Label(search_customers, text= "Email Address").grid(row=index+10, column=0, sticky=W, padx=10)
-        #username_label = Label(search_customers, text= "Username").grid(row=index+11, column=0, sticky=W, padx=10)
-        payment_method_label = Label(search_customers, text= "Payment Method").grid(row=index+12, column=0, sticky=W, padx=10)
-        discount_code_label = Label(search_customers, text= "Discount Code").grid(row=index+13, column=0, sticky=W, padx=10)
-        price_paid_label = Label(search_customers, text= "Price Paid").grid(row=index+14, column=0, sticky=W, padx=10)
-        id_label = Label(search_customers, text="User ID").grid(row=index+15, column=0, sticky=W, padx=10)
+        payment_method_label = Label(search_customers, text= "Payment Method").grid(row=index+11, column=0, sticky=W, padx=10)
+        discount_code_label = Label(search_customers, text= "Discount Code").grid(row=index+12, column=0, sticky=W, padx=10)
+        price_paid_label = Label(search_customers, text= "Price Paid").grid(row=index+13, column=0, sticky=W, padx=10)
+        id_label = Label(search_customers, text="User ID").grid(row=index+14, column=0, sticky=W, padx=10)
 
         global first_name_box2
         first_name_box2 = Entry(search_customers)
@@ -194,31 +193,31 @@ def search_customer():
 
         global payment_method_box2
         payment_method_box2 = Entry(search_customers)
-        payment_method_box2.grid(row=index+12, column=1, pady=5)
+        payment_method_box2.grid(row=index+11, column=1, pady=5)
         payment_method_box2.insert(0, result2[0][12])
 
         global discount_code_box2
         discount_code_box2 = Entry(search_customers)
-        discount_code_box2.grid(row=index+13, column=1, pady=5)
+        discount_code_box2.grid(row=index+12, column=1, pady=5)
         discount_code_box2.insert(0, result2[0][13])
 
         global price_paid_box2
         price_paid_box2 = Entry(search_customers)
-        price_paid_box2.grid(row=index+14, column=1, pady=5)
+        price_paid_box2.grid(row=index+13, column=1, pady=5)
         price_paid_box2.insert(0, result2[0][3])
 
         global id_box2
         id_box2 = Entry(search_customers)
-        id_box2.grid(row=index+15, column=1, pady=5)
+        id_box2.grid(row=index+14, column=1, pady=5)
         id_box2.insert(0, result2[0][4])
 
         save_record = Button(search_customers, text="Update Record", command=update)
-        save_record.grid(row=index+16, column=0, pady=10)
+        save_record.grid(row=index+15, column=0, padx=10)
        
 
 
     def search_now():
-        selected = drop.get()
+        selected = drop.get()    
         sql = ""
         if selected == "Search by...":
             test = Label(search_customers, text="Hey! You forgot to pick")
@@ -240,7 +239,7 @@ def search_customer():
 
 
         searched = search_box.get()
-        sql = "SELECT * FROM customers WHERE last_name = %s"
+        #sql = "SELECT * FROM customers WHERE last_name = %s"
         name = (searched, )
         result = my_cursor.execute(sql, name)
         result = my_cursor.fetchall()
